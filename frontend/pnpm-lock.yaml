@@ -18,6 +18,9 @@ importers:
       '@eslint/js':
         specifier: ^9.25.0
         version: 9.29.0
+      '@trpc/client':
+        specifier: ^11.4.2
+        version: 11.4.2(@trpc/server@11.4.2(typescript@5.8.3))(typescript@5.8.3)
       '@types/react':
         specifier: ^19.1.2
         version: 19.1.8
@@ -452,6 +455,17 @@ packages:
 
   '@swc/types@0.1.23':
     resolution: {integrity: sha512-u1iIVZV9Q0jxY+yM2vw/hZGDNudsN85bBpTqzAQ9rzkxW9D+e3aEM4Han+ow518gSewkXgjmEK0BD79ZcNVgPw==}
+
+  '@trpc/client@11.4.2':
+    resolution: {integrity: sha512-Eep1rorAsATs9bxgaXf+BV34CRs4lAKQmwumUL4CNdNDkJItyfuWUr3xWx0np1w3EzUDVA0YDMK93iKDBBA0KQ==}
+    peerDependencies:
+      '@trpc/server': 11.4.2
+      typescript: '>=5.7.2'
+
+  '@trpc/server@11.4.2':
+    resolution: {integrity: sha512-THyq/V5bSFDHeWEAk6LqHF0IVTGk6voGwWsFEipzRRKOWWMIZINCsKZ4cISG6kWO2X9jBfMWv/S2o9hnC0zQ0w==}
+    peerDependencies:
+      typescript: '>=5.7.2'
 
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
@@ -1273,6 +1287,15 @@ snapshots:
   '@swc/types@0.1.23':
     dependencies:
       '@swc/counter': 0.1.3
+
+  '@trpc/client@11.4.2(@trpc/server@11.4.2(typescript@5.8.3))(typescript@5.8.3)':
+    dependencies:
+      '@trpc/server': 11.4.2(typescript@5.8.3)
+      typescript: 5.8.3
+
+  '@trpc/server@11.4.2(typescript@5.8.3)':
+    dependencies:
+      typescript: 5.8.3
 
   '@types/estree@1.0.7': {}
 

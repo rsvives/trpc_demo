@@ -6,6 +6,8 @@ import { createExpressMiddleware } from '@trpc/server/adapters/express'
 const app = express()
 const port = 3000
 
+app.use(cors({ origin: 'http://localhost:5173' }))
+
 const t = initTRPC.create()
 
 const appRouter = t.router({
@@ -17,6 +19,7 @@ const appRouter = t.router({
         throw new Error('invalid input')
     }).mutation(req => {
         console.log(`client says: ${req.input}`)
+        return true
     })
 })
 
@@ -26,10 +29,12 @@ app.get('/ping', (req, res) => {
     res.send({ 'message': 'pong' })
 })
 
-app.use('/trpc', createExpressMiddleware({ router: appRouter }))
 
-app.use(cors({ origin: 'http://localhost:5173' }))
+
+app.use('/trpc', createExpressMiddleware({ router: appRouter }))
 
 app.listen(port, () => {
     console.log(`server listening on port ${port}`)
 })
+
+export type AppRouter = typeof appRouter
